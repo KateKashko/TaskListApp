@@ -13,6 +13,7 @@
 		93E707F42A1621DB006E3AAB /* TaskListApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93E707F22A1621DB006E3AAB /* TaskListApp.xcdatamodeld */; };
 		93E707F62A1621DC006E3AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E707F52A1621DC006E3AAB /* Assets.xcassets */; };
 		93E707F92A1621DC006E3AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E707F72A1621DC006E3AAB /* LaunchScreen.storyboard */; };
+		93E708012A162F3C006E3AAB /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E708002A162F3C006E3AAB /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		93E707F52A1621DC006E3AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93E707F82A1621DC006E3AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93E707FA2A1621DD006E3AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93E708002A162F3C006E3AAB /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				93E707E92A1621DB006E3AAB /* AppDelegate.swift */,
 				93E707EB2A1621DB006E3AAB /* SceneDelegate.swift */,
 				93E707ED2A1621DB006E3AAB /* TaskListViewController.swift */,
+				93E708002A162F3C006E3AAB /* NewTaskViewController.swift */,
 				93E707F52A1621DC006E3AAB /* Assets.xcassets */,
 				93E707F72A1621DC006E3AAB /* LaunchScreen.storyboard */,
 				93E707FA2A1621DD006E3AAB /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				93E707F42A1621DB006E3AAB /* TaskListApp.xcdatamodeld in Sources */,
 				93E707EE2A1621DB006E3AAB /* TaskListViewController.swift in Sources */,
+				93E708012A162F3C006E3AAB /* NewTaskViewController.swift in Sources */,
 				93E707EA2A1621DB006E3AAB /* AppDelegate.swift in Sources */,
 				93E707EC2A1621DB006E3AAB /* SceneDelegate.swift in Sources */,
 			);
@@ -284,6 +288,7 @@
 				INFOPLIST_FILE = TaskListApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -314,6 +319,7 @@
 				INFOPLIST_FILE = TaskListApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
