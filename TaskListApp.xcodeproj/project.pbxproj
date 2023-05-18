@@ -14,6 +14,7 @@
 		93E707F62A1621DC006E3AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E707F52A1621DC006E3AAB /* Assets.xcassets */; };
 		93E707F92A1621DC006E3AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E707F72A1621DC006E3AAB /* LaunchScreen.storyboard */; };
 		93E708012A162F3C006E3AAB /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E708002A162F3C006E3AAB /* NewTaskViewController.swift */; };
+		93E708082A165468006E3AAB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E708072A165468006E3AAB /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		93E707F82A1621DC006E3AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93E707FA2A1621DD006E3AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93E708002A162F3C006E3AAB /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		93E708072A165468006E3AAB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,57 @@
 		93E707E82A1621DB006E3AAB /* TaskListApp */ = {
 			isa = PBXGroup;
 			children = (
-				93E707E92A1621DB006E3AAB /* AppDelegate.swift */,
-				93E707EB2A1621DB006E3AAB /* SceneDelegate.swift */,
-				93E707ED2A1621DB006E3AAB /* TaskListViewController.swift */,
-				93E708002A162F3C006E3AAB /* NewTaskViewController.swift */,
-				93E707F52A1621DC006E3AAB /* Assets.xcassets */,
-				93E707F72A1621DC006E3AAB /* LaunchScreen.storyboard */,
-				93E707FA2A1621DD006E3AAB /* Info.plist */,
+				93E708022A165362006E3AAB /* Apps */,
+				93E708062A16542B006E3AAB /* Services */,
+				93E708032A165381006E3AAB /* ViewControllers */,
+				93E708042A1653F9006E3AAB /* Resources */,
+				93E708052A165415006E3AAB /* StoryBoards */,
 				93E707F22A1621DB006E3AAB /* TaskListApp.xcdatamodeld */,
 			);
 			path = TaskListApp;
+			sourceTree = "<group>";
+		};
+		93E708022A165362006E3AAB /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				93E707E92A1621DB006E3AAB /* AppDelegate.swift */,
+				93E707EB2A1621DB006E3AAB /* SceneDelegate.swift */,
+				93E707FA2A1621DD006E3AAB /* Info.plist */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		93E708032A165381006E3AAB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				93E708002A162F3C006E3AAB /* NewTaskViewController.swift */,
+				93E707ED2A1621DB006E3AAB /* TaskListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		93E708042A1653F9006E3AAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93E707F52A1621DC006E3AAB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		93E708052A165415006E3AAB /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				93E707F72A1621DC006E3AAB /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		93E708062A16542B006E3AAB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				93E708072A165468006E3AAB /* StorageManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +186,7 @@
 				93E707F42A1621DB006E3AAB /* TaskListApp.xcdatamodeld in Sources */,
 				93E707EE2A1621DB006E3AAB /* TaskListViewController.swift in Sources */,
 				93E708012A162F3C006E3AAB /* NewTaskViewController.swift in Sources */,
+				93E708082A165468006E3AAB /* StorageManager.swift in Sources */,
 				93E707EA2A1621DB006E3AAB /* AppDelegate.swift in Sources */,
 				93E707EC2A1621DB006E3AAB /* SceneDelegate.swift in Sources */,
 			);
