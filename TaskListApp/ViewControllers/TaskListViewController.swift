@@ -16,7 +16,7 @@ final class TaskListViewController: UITableViewController {
     private let viewContext = StorageManager.shared.persistentContainer.viewContext
     private let cellID = "cell"
     private var taskList: [Task] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID) // зарег-ли ячейку
@@ -39,8 +39,24 @@ final class TaskListViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle:
+                            UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let deleteTask = taskList[indexPath.row]
+            StorageManager.shared.deleteContext(deleteTask)
+            taskList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        showAlert(withTitle: "Edit", andMessage: "", forRowAt: indexPath.row)
+    }
+    
+    // MARK: - Alert
     @objc private func addNewTask() {
-        showAlert(withTitle: "New Task", andMessage: "What do you want to do?")
+        showAlert(withTitle: "New Task", andMessage: "What do you want to do?", forRowAt: 0)
     }
     
     private func fetchData() {
@@ -52,18 +68,39 @@ final class TaskListViewController: UITableViewController {
             print (error.localizedDescription)
         }
     }
-    private func showAlert(withTitle title: String, andMessage message: String) {
+    
+    private func showAlert(withTitle title: String, andMessage message: String, forRowAt row: Int) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save Task", style: .default) { [unowned self] _ in
-            guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
-            save(task)
+        
+        if message != "" {
+            alert.addTextField { textText in
+                textText.placeholder = "New Task"
+            }
+            let saveAction = UIAlertAction(title: "Save Task", style: .default) { [unowned self] _ in
+                guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
+                save(task)
+            }
+            alert.addAction(saveAction)
+        } else {
+            let editTask = taskList[row]
+            alert.addTextField { textField in
+                textField.text = editTask.title
+            }
+            
+            let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
+                guard let updatedTaskTitle = alert.textFields?.first?.text, !updatedTaskTitle.isEmpty else { return }
+                
+                editTask.title = updatedTaskTitle
+                let cellIndex = IndexPath(row: row, section: 0)
+                tableView.reloadRows(at: [cellIndex], with: .automatic)
+                StorageManager.shared.saveContext()
+            }
+            alert.addAction(saveAction)
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
-        alert.addAction(saveAction)
         alert.addAction(cancelAction)
-        alert.addTextField { textText in
-            textText.placeholder = "New Task"
-        }
+        
         present(alert, animated: true)
     }
     
@@ -83,9 +120,7 @@ final class TaskListViewController: UITableViewController {
             }
         }
         dismiss(animated: true)
-        
     }
-
 }
 
 
@@ -113,6 +148,7 @@ private extension TaskListViewController {
         navigationController?.navigationBar.tintColor = .white
     }
 }
+
 // MARK: - NewTaskViewControllerDelegate
 extension TaskListViewController: NewTaskViewControllerDelegate {
     func reloadData() {
@@ -120,3 +156,4 @@ extension TaskListViewController: NewTaskViewControllerDelegate {
         tableView.reloadData()
     }
 }
+

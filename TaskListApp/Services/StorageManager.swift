@@ -25,7 +25,7 @@ final class StorageManager {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
     func saveContext() {
         let context = persistentContainer.viewContext
@@ -38,4 +38,12 @@ final class StorageManager {
             }
         }
     }
+    
+    // MARK: - Core Data Deleting support
+    func deleteContext(_ task: Task) {
+        let context = persistentContainer.viewContext
+        context.delete(task)
+        saveContext()
+    }
 }
+    
