@@ -40,6 +40,10 @@ final class FilledButtonFactory: ButtonFactory {
 
 
 final class NewTaskViewController: UIViewController {
+    
+    weak var delegate: NewTaskViewControllerDelegate!
+    private let viewContext = StorageManager.shared.persistentContainer.viewContext
+
     private lazy var taskTextfield: UITextField = { //lazy откладывает инициализацию
         let textField = UITextField()
         textField.borderStyle = .roundedRect
@@ -50,7 +54,7 @@ final class NewTaskViewController: UIViewController {
     
     private lazy var saveButton: UIButton = {
         let filledButtonFactory = FilledButtonFactory(
-            title: "SaveTask",
+            title: "Save Task",
             color: UIColor(named: "MilkBlue") ?? .systemBlue,
             action: UIAction { [unowned self] _ in
                 save()
@@ -102,6 +106,18 @@ final class NewTaskViewController: UIViewController {
         ])
     }
     private func save() {
+        let task = Task(context: viewContext)
+        task.title = taskTextfield.text
+        
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        delegate.reloadData()
         dismiss(animated: true)
+        
     }
 }
