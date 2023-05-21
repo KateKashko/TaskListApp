@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol NewTaskViewControllerDelegate: AnyObject {
-    func reloadData()
-}
-
 final class TaskListViewController: UITableViewController {
     
     private let viewContext = StorageManager.shared.persistentContainer.viewContext
@@ -149,11 +145,5 @@ private extension TaskListViewController {
     }
 }
 
-// MARK: - NewTaskViewControllerDelegate
-extension TaskListViewController: NewTaskViewControllerDelegate {
-    func reloadData() {
-        fetchData()
-        tableView.reloadData()
-    }
-}
+
 
